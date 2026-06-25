@@ -1,4 +1,4 @@
-from django.test import TestCase, client
+from django.test import TestCase, Client
 from django.db import models
 from django.utils import timezone
 from datetime import datetime
@@ -56,7 +56,7 @@ class TodoViewTestCase(TestCase):
         response = client.get('/')
 
         self.assertEqual(response.status_code,200)
-        self.assertEqual(response.teplates[0].name,'todo/index.html')
+        self.assertEqual(response.templates[0].name,'todo/index.html')
         self.assertEqual(len(response.context['tasks']),0)
 
     def test_index_post(self):
